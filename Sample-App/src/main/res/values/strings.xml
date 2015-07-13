@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Rumble SDK</string>
+    <string name="hello_world">SDK demo</string>
+    <string name="action_settings">Settings</string>
+    <string name="txt_console_label">Console:</string>
+    <string name="btn_init_analytics">Init Analytics SDK</string>
+    <string name="btn_send_event">Send Analytics Event</string>
+    <string name="pref_connect_to_production">Perform operations on production environment</string>
+    <string name="pref_production">Production</string>
+    <string name="pref_sdk_settings">SDK Settings</string>
+    <string name="pref_enter_app_id">Enter appID</string>
+    <string name="pref_app_id">App ID</string>
+    <string name="btn_open_session">Open Session</string>
+    <string name="btn_close_session">Close Session</string>
+    <string name="btn_opt_out">Opt Out</string>
+    <string name="txt_event_json">Event in JSON format</string>
+    <string name="articleSelectedJson">{ֿ\"Attributes\":{\"ChannelId\":\"3450\",\"Category\":\"Engagement\"},\"Name\":\"ArticleSelected\"}</string>
+</resources>

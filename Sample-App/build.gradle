@@ -1,0 +1,106 @@
+apply plugin: 'com.android.application'
+apply plugin: 'jacoco'
+//
+//apply plugin: 'com.neenbedankt.android-apt' //needed for source code generation (like with the Dagger/androidAnnotations Dependency Injectors)
+//def AAVersion = '3.+' //android annotrations version
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    dependencies {
+        classpath 'org.robolectric:robolectric-gradle-plugin:0.14.1'
+    }
+}
+
+// Version Calculations
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
+def versionBuild = 0
+
+def gitSha = 'git rev--parse --short HEAD'.execute([], project.rootDir).text.trim()
+def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm'Z'", TimeZone.getTimeZone("UTC"))
+
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'MyAndroidKey'
+            keyPassword 'Rumble2012'
+            storeFile file('./keystore/sampleAppKeystore.jks')
+            storePassword 'Rumble2012'
+        }
+    }
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+    defaultConfig {
+        applicationId "com.rumble"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+        buildConfigField "String", "GIT_SHA", "\"${gitSha}\""
+        buildConfigField "String", "BUILD_TIME", "\"${buildTime}\""
+        signingConfig signingConfigs.config
+        multiDexEnabled = true
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFile 'proguard-rules.pro'
+            debuggable true
+            testCoverageEnabled = true
+        }
+
+//        release {
+//            signingConfig signingConfigs.release
+//            minifyEnabled false  //turning this to true will cause "build failure" when used with the apt-plugin for some reason. thus turned it to false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+    }
+    // THis prevents duplication errors when we run proguard.
+    packagingOptions {
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    productFlavors {
+    }
+}
+
+
+dependencies {
+
+    compile(group: 'workspace', name: 'rumble-core', version: '1.0', ext: 'aar')
+    compile(group: 'workspace', name: 'rumble-analytics', version: '1.0', ext: 'aar')
+//    compile 'com.rumble.sdk.core:rumble-core-release@aar'
+//    compile 'com.rumble.sdk.analytics:rumble-analytics-release@aar'
+
+
+    compile 'com.mcxiaoke.volley:library:1.0.0'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.1.4'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.1.4'
+    compile 'com.octo.android.robospice:robospice:1.4.6'
+    compile 'com.octo.android.robospice:robospice-spring-android:1.4.14'
+    compile 'de.greenrobot:eventbus:2.4.0'
+    compile 'com.android.support:appcompat-v7:22.2.0'
+}

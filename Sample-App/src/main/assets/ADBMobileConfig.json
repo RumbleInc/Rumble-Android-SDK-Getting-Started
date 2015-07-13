@@ -1,0 +1,28 @@
+﻿{
+  "version": "2014-07-25T19:23:41.805Z",
+  "target": {
+    "clientCode": "",
+    "timeout": 5
+  },
+  "audienceManager": {
+    "server": ""
+  },
+  "acquisition": {
+    "server": "c00.adobe.com",
+    "appid": "e608f02754502279529f4a1d6a4d09207b3bd3491285ce1c27fef418ac99dd22"
+  },
+  "analytics": {
+    "rsids": "mngijulesburgadvocateapp",
+    "server": "mngi.112.2o7.net",
+    "ssl": false,
+    "offlineEnabled": false,
+    "charset": "UTF-8",
+    "lifecycleTimeout": 300,
+    "privacyDefault": "optedin",
+    "batchLimit": 0,
+    "timezone": "MDT",
+    "timezoneOffset": -360,
+    "referrerTimeout": 0,
+    "poi": []
+  }
+}

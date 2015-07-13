@@ -1,0 +1,37 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+//apply plugin: "sonar-runner"
+apply plugin: 'jacoco'
+
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4' //added apt for source code generation
+        classpath 'com.github.dcendents:android-maven-plugin:1.2'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
+        // Enables checkStyle and pmd gradle support for android modules
+//        classpath 'com.noveogroup.android:check:1.1.2'
+
+    }
+}
+
+ext.buildnumber = System.getenv('BUILD_NUMBER') ?: 1
+ext.versionname = System.getenv('VERSION_NAME') ?: "1.0"
+ext.siteUrl = 'https://github.com/RumbleInc/Rumble-Android-SDK'      // Homepage URL of the library
+ext.gitUrl = 'https://github.com/RumbleInc/Rumble-Android-SDK.git'   // Git repository URL
+ext.group = "com.rumble.sdk"                                        // Maven Group ID for the artifact
+
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url  "http://dl.bintray.com/rumble-news/RumbleInc/"
+        }
+    }
+}
+
+
+

@@ -1,0 +1,110 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <include
+        layout="@layout/app_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/btnClearConsole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear console"
+            android:layout_alignParentRight="true"
+            android:onClick="onClearClicked"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_console_label"
+            android:layout_alignBottom="@id/btnClearConsole"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/consoleList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="2dp"
+        android:layout_weight="1"
+        android:background="@drawable/console_shape"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5sp"
+        android:padding="5dp"></ListView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnOpenSession"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendOpenSession"
+                android:text="@string/btn_open_session" />
+
+            <Button
+                android:id="@+id/btnSendEvent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendEventUsingJson"
+                android:text="@string/btn_send_event" />
+
+            <Button
+                android:id="@+id/btnCloseSession"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendCloseSession"
+                android:text="@string/btn_close_session" />
+
+            <Button
+                android:id="@+id/btnOptOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="toggleOptOut"
+                android:text="@string/btn_opt_out" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_event_json" />
+
+            <EditText
+                android:id="@+id/txtEventJson"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:gravity="top"
+                android:scrollbars="horizontal"
+                android:text="@string/articleSelectedJson"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
