@@ -89,27 +89,6 @@ public class MainActivity extends ActionBarActivity {
         MyArticle article = new MyArticle();
         AnalyticTrackingEvent event = null;
 
-
-        event = ContentBI.sendAdClickedEvent(adRequest, article);
-        event = ContentBI.sendPageViewEvent("Label 1");
-        event = ContentBI.sendArticleBookmarkEvent(article);
-        event = ContentBI.sendArticleLikeEvent(article, AppSocialNetworks.Facebook);
-        event = ContentBI.sendArticleReadEvent(article, 5000);
-        event = ContentBI.sendArticleShareEvent(article, AppSocialNetworks.Twitter);
-        event = ContentBI.sendCommentsOpenedEvent(article, AppSocialNetworks.Facebook);
-        event = ContentBI.sendVideoStartedEvent(article.getArticleId(), "http://video.com/lions123");
-        event = ContentBI.sendSyndicationLinkClickEvent("http://syndication.com/link1", "Source 1");
-        event = ContentBI.sendVideoADStartedEvent(article.getArticleId(),"http://video.com/lions123");
-
-
-        ContentBI.addAggregatedAdEvent(EventConstants.ATTR_AD_FAILED,adRequest,article);
-        ContentBI.addAggregatedAdEvent(EventConstants.ATTR_AD_FAILED,adRequest,article);
-        ContentBI.addAggregatedAdEvent(EventConstants.ATTR_AD_FILLED,adRequest,article);
-        ContentBI.addAggregatedAdEvent(EventConstants.ATTR_AD_REQUESTED,adRequest,article);
-        ContentBI.addAggregatedAdEvent(EventConstants.ATTR_AD_REQUESTED,adRequest,article);
-        ContentBI.addAggregatedAdEvent(EventConstants.ATTR_AD_TIMEOUT,adRequest,article);
-        event = ContentBI.sendAggregatedAdEvent();
-
         Utils.showAlertDialog(this, "Event Json", Utils.prettifyJson(event), null);
     }
 
@@ -152,6 +131,35 @@ public class MainActivity extends ActionBarActivity {
 
     public void toggleOptOut(View v) {
         AnalyticsService.setOptOut(!AnalyticsService.isOptOut());
+    }
+
+    public void contentBIExamples() {
+
+        MyAdRequest adRequest = new MyAdRequest();
+        MyArticle article = new MyArticle();
+        AnalyticTrackingEvent event = null;
+
+        event = ContentBI.sendAdClickedEvent(adRequest, article);
+        event = ContentBI.sendPageViewEvent("Label 1");
+        event = ContentBI.sendArticleBookmarkEvent(article);
+        event = ContentBI.sendArticleLikeEvent(article, AppSocialNetworks.Facebook);
+        event = ContentBI.sendArticleReadEvent(article, 5000);
+        event = ContentBI.sendArticleShareEvent(article, AppSocialNetworks.Twitter);
+        event = ContentBI.sendCommentsOpenedEvent(article, AppSocialNetworks.Facebook);
+        event = ContentBI.sendVideoStartedEvent(article.getArticleId(), "http://video.com/lions123");
+        event = ContentBI.sendSyndicationLinkClickEvent("http://syndication.com/link1", "Source 1");
+        event = ContentBI.sendVideoADStartedEvent(article.getArticleId(),"http://video.com/lions123");
+
+        ContentBI.addAggregatedAdEvent(EventConstants.ATTR_AD_FAILED,adRequest,article);
+        ContentBI.addAggregatedAdEvent(EventConstants.ATTR_AD_FAILED,adRequest,article);
+        ContentBI.addAggregatedAdEvent(EventConstants.ATTR_AD_FILLED,adRequest,article);
+        ContentBI.addAggregatedAdEvent(EventConstants.ATTR_AD_REQUESTED,adRequest,article);
+        ContentBI.addAggregatedAdEvent(EventConstants.ATTR_AD_REQUESTED,adRequest,article);
+        ContentBI.addAggregatedAdEvent(EventConstants.ATTR_AD_TIMEOUT,adRequest,article);
+        event = ContentBI.sendAggregatedAdEvent();
+
+        //use this to present the output json in a dialog
+        Utils.showAlertDialog(this, "Event Json", Utils.prettifyJson(event), null);
     }
 
 /**************************************************************************/

@@ -1,8 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'jacoco'
-//
-//apply plugin: 'com.neenbedankt.android-apt' //needed for source code generation (like with the Dagger/androidAnnotations Dependency Injectors)
-//def AAVersion = '3.+' //android annotrations version
 
 buildscript {
     repositories {
@@ -31,10 +27,8 @@ def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm'Z'", TimeZone.getTimeZone(
 android {
     signingConfigs {
         config {
-            keyAlias 'MyAndroidKey'
-            keyPassword 'Rumble2012'
-            storeFile file('./keystore/sampleAppKeystore.jks')
-            storePassword 'Rumble2012'
+            keyAlias 'key'
+            keyPassword 'dummy'
         }
     }
     compileSdkVersion 21
@@ -56,12 +50,6 @@ android {
             debuggable true
             testCoverageEnabled = true
         }
-
-//        release {
-//            signingConfig signingConfigs.release
-//            minifyEnabled false  //turning this to true will cause "build failure" when used with the apt-plugin for some reason. thus turned it to false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//        }
     }
     // THis prevents duplication errors when we run proguard.
     packagingOptions {
@@ -79,8 +67,6 @@ android {
     }
     lintOptions {
         checkReleaseBuilds false
-        // Or, if you prefer, you can continue to check for errors in release builds,
-        // but continue the build even when errors are found:
         abortOnError false
     }
     productFlavors {
@@ -89,12 +75,8 @@ android {
 
 
 dependencies {
-
-    compile(group: 'workspace', name: 'rumble-core', version: '1.0', ext: 'aar')
-    compile(group: 'workspace', name: 'rumble-analytics', version: '1.0', ext: 'aar')
-//    compile 'com.rumble.sdk.core:rumble-core-release@aar'
-//    compile 'com.rumble.sdk.analytics:rumble-analytics-release@aar'
-
+    compile(group: 'workspace', name: 'rumble-analytics', version: '1.0.0.29', ext: 'aar')
+    compile(group: 'workspace', name: 'rumble-core', version: '1.0.0.29', ext: 'aar')
 
     compile 'com.mcxiaoke.volley:library:1.0.0'
     compile 'com.fasterxml.jackson.core:jackson-core:2.1.4'
@@ -103,4 +85,5 @@ dependencies {
     compile 'com.octo.android.robospice:robospice-spring-android:1.4.14'
     compile 'de.greenrobot:eventbus:2.4.0'
     compile 'com.android.support:appcompat-v7:22.2.0'
+
 }

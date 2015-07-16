@@ -1,20 +1,12 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-//apply plugin: "sonar-runner"
-apply plugin: 'jacoco'
-
-
 buildscript {
     repositories {
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.0.0'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4' //added apt for source code generation
         classpath 'com.github.dcendents:android-maven-plugin:1.2'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
-        // Enables checkStyle and pmd gradle support for android modules
-//        classpath 'com.noveogroup.android:check:1.1.2'
-
     }
 }
 
