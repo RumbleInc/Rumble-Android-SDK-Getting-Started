@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="rumble-analytics-1.0.0.32">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Sample-App/build/intermediates/exploded-aar/workspace/rumble-analytics/1.0.0.32/res" />
+      <root url="jar://$PROJECT_DIR$/Sample-App/build/intermediates/exploded-aar/workspace/rumble-analytics/1.0.0.32/libs/adobeMobileLibrary.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Sample-App/build/intermediates/exploded-aar/workspace/rumble-analytics/1.0.0.32/libs/libGoogleAnalyticsServices.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Sample-App/build/intermediates/exploded-aar/workspace/rumble-analytics/1.0.0.32/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Sample-App/build/intermediates/exploded-aar/workspace/rumble-analytics/1.0.0.32/libs/PlacerSDK.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Sample-App/build/intermediates/exploded-aar/workspace/rumble-analytics/1.0.0.32/libs/localytics.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Sample-App/build/intermediates/exploded-aar/workspace/rumble-analytics/1.0.0.32/libs/Personagraph-SDK-1.17.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

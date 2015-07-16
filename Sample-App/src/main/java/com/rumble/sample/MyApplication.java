@@ -11,9 +11,6 @@ import com.rumble.sdk.core.messages.BaseMessage;
 
 import java.util.ArrayList;
 
-/**
- * Created by saharkroglen on 6/25/15.
- */
 public class MyApplication extends Application {
 
 
