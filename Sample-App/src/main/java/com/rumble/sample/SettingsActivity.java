@@ -40,12 +40,22 @@ public class SettingsActivity extends PreferenceActivity {
                     System.exit(0);
                 }
             };
-            Utils.showAlertDialog(this, "Important", "Critical Preferences have changed\n" +
+            showAlertDialog(this, "Important", "Critical Preferences have changed\n" +
                     "App will close now for changes to take effect", dialogListener);
         }
         else
         {
             finish();
         }
+    }
+
+    public void showAlertDialog(Context context, String title, String body,
+                                DialogInterface.OnClickListener listener) {
+        AlertDialog.Builder dlgAlert = new AlertDialog.Builder(context);
+        dlgAlert.setMessage(body);
+        dlgAlert.setTitle(title);
+        dlgAlert.setPositiveButton("OK", listener);
+        dlgAlert.setCancelable(false);
+        dlgAlert.create().show();
     }
 }

@@ -89,7 +89,6 @@ public class MainActivity extends ActionBarActivity {
         MyArticle article = new MyArticle();
         AnalyticTrackingEvent event = null;
 
-        Utils.showAlertDialog(this, "Event Json", Utils.prettifyJson(event), null);
     }
 
     public void sendCloseSession(View v) {
@@ -159,7 +158,7 @@ public class MainActivity extends ActionBarActivity {
         event = ContentBI.sendAggregatedAdEvent();
 
         //use this to present the output json in a dialog
-        Utils.showAlertDialog(this, "Event Json", Utils.prettifyJson(event), null);
+//        Utils.showAlertDialog(this, "Event Json", Utils.prettifyJson(event), null);
     }
 
 /**************************************************************************/

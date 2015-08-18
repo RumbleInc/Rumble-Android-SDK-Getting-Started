@@ -75,8 +75,8 @@ android {
 
 
 dependencies {
-    compile(group: 'workspace', name: 'rumble-analytics', version: '1.0.0.+', ext: 'aar')
-    compile(group: 'workspace', name: 'rumble-core', version: '1.0.0.+', ext: 'aar')
+    compile(group: 'workspace', name: 'rumble-analytics', version: '8.1.0.+', ext: 'aar')
+    compile(group: 'workspace', name: 'rumble-core', version: '8.1.0.+', ext: 'aar')
 
     compile 'com.mcxiaoke.volley:library:1.0.0'
     compile 'com.fasterxml.jackson.core:jackson-core:2.1.4'
